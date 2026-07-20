@@ -1,4 +1,4 @@
-from flask import Flask, jsonify 
+from flask import Flask, jsonify
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 import hashlib
@@ -51,8 +51,7 @@ def home():
 
 
 @app.route("/login-check")
-@limiter.iimit("5 per second")
-
+@limiter.limit("5 per second")
 def login_check():
     start_time = time.perf_counter()
 
